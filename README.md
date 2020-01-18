@@ -11,7 +11,7 @@ parseCss(css = '' /* css code */, options = {
     source: null, // (string|null) the path to the file containing css. Used for errors and source maps.
 })
 searchCSS(ast = {} /* css ast object */, query = {} /* search rules */, options = {
-    singleDeclaration: false, // (bool) group the same consecutive selectors together
+    singleDeclaration: false, // (bool) only search selectors that have one property. Used for searching utility classes
     specialChar: '|', // (string) wildcard char(s) for query values 
 })
 searchCSS(...[]).getMatches();
