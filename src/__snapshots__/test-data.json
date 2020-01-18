@@ -1,0 +1,2122 @@
+{
+	"at-namespace": {
+		"css": "@namespace svg \"http://www.w3.org/2000/svg\";",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@namespace",
+					"value": "svg \"http://www.w3.org/2000/svg\""
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"charset": {
+		"css": "@charset \"UTF-8\";       /* Set the encoding of the style sheet to Unicode UTF-8 */\n@charset 'iso-8859-15'; /* Set the encoding of the style sheet to Latin-9 (Western European languages, with euro sign) */",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@charset",
+					"value": "\"UTF-8\""
+				},
+				{
+					"type": "@comment",
+					"value": " Set the encoding of the style sheet to Unicode UTF-8 "
+				},
+				{
+					"type": "@charset",
+					"value": "'iso-8859-15'"
+				},
+				{
+					"type": "@comment",
+					"value": " Set the encoding of the style sheet to Latin-9 (Western European languages, with euro sign) "
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"charset-linebreak": {
+		"css": "@charset\n    \"UTF-8\"\n    ;",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@charset",
+					"value": "\"UTF-8\""
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"colon-space": {
+		"css": "a {\n    margin  : auto;\n    padding : 0;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"a"
+					],
+					"declarations": [
+						{
+							"property": "margin",
+							"value": "auto"
+						},
+						{
+							"property": "padding",
+							"value": "0"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"comma-attribute": {
+		"css": ".foo[bar=\"baz,quz\"] {\n  foobar: 123;\n}\n\n.bar,\n#bar[baz=\"qux,foo\"],\n#qux {\n  foobar: 456;\n}\n\n.baz[qux=\",foo\"],\n.baz[qux=\"foo,\"],\n.baz[qux=\"foo,bar,baz\"],\n.baz[qux=\",foo,bar,baz,\"],\n.baz[qux=\" , foo , bar , baz , \"] {\n  foobar: 789;\n}\n\n.qux[foo='bar,baz'],\n.qux[bar=\"baz,foo\"],\n#qux[foo=\"foobar\"],\n#qux[foo=',bar,baz, '] {\n  foobar: 012;\n}\n\n#foo[foo=\"\"],\n#foo[bar=\" \"],\n#foo[bar=\",\"],\n#foo[bar=\", \"],\n#foo[bar=\" ,\"],\n#foo[bar=\" , \"],\n#foo[baz=''],\n#foo[qux=' '],\n#foo[qux=','],\n#foo[qux=', '],\n#foo[qux=' ,'],\n#foo[qux=' , '] {\n  foobar: 345;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						".foo[bar=\"baz,quz\"]"
+					],
+					"declarations": [
+						{
+							"property": "foobar",
+							"value": "123"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						".bar",
+						"#bar[baz=\"qux,foo\"]",
+						"#qux"
+					],
+					"declarations": [
+						{
+							"property": "foobar",
+							"value": "456"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						".baz[qux=\",foo\"]",
+						".baz[qux=\"foo,\"]",
+						".baz[qux=\"foo,bar,baz\"]",
+						".baz[qux=\",foo,bar,baz,\"]",
+						".baz[qux=\" , foo , bar , baz , \"]"
+					],
+					"declarations": [
+						{
+							"property": "foobar",
+							"value": "789"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						".qux[foo='bar,baz']",
+						".qux[bar=\"baz,foo\"]",
+						"#qux[foo=\"foobar\"]",
+						"#qux[foo=',bar,baz, ']"
+					],
+					"declarations": [
+						{
+							"property": "foobar",
+							"value": "012"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#foo[foo=\"\"]",
+						"#foo[bar=\" \"]",
+						"#foo[bar=\",\"]",
+						"#foo[bar=\", \"]",
+						"#foo[bar=\" ,\"]",
+						"#foo[bar=\" , \"]",
+						"#foo[baz='']",
+						"#foo[qux=' ']",
+						"#foo[qux=',']",
+						"#foo[qux=', ']",
+						"#foo[qux=' ,']",
+						"#foo[qux=' , ']"
+					],
+					"declarations": [
+						{
+							"property": "foobar",
+							"value": "345"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"comma-selector-function": {
+		"css": ".foo:matches(.bar,.baz),\n.foo:matches(.bar, .baz),\n.foo:matches(.bar , .baz),\n.foo:matches(.bar ,.baz) {\n  prop: value;\n}\n\n.foo:matches(.bar,.baz,.foobar),\n.foo:matches(.bar, .baz,),\n.foo:matches(,.bar , .baz) {\n  anotherprop: anothervalue;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						".foo:matches(.bar,.baz)",
+						".foo:matches(.bar, .baz)",
+						".foo:matches(.bar , .baz)",
+						".foo:matches(.bar ,.baz)"
+					],
+					"declarations": [
+						{
+							"property": "prop",
+							"value": "value"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						".foo:matches(.bar,.baz,.foobar)",
+						".foo:matches(.bar, .baz,)",
+						".foo:matches(,.bar , .baz)"
+					],
+					"declarations": [
+						{
+							"property": "anotherprop",
+							"value": "anothervalue"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"comment": {
+		"css": "/* 1 */\n\nhead, /* footer, */body/*, nav */ { /* 2 */\n  /* 3 */\n  /**/foo: 'bar';\n  /* 4 */\n} /* 5 */\n\n/* 6 */",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@comment",
+					"value": " 1 "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"head",
+						"body"
+					],
+					"declarations": [
+						{
+							"type": "@comment",
+							"value": " 2 "
+						},
+						{
+							"type": "@comment",
+							"value": " 3 "
+						},
+						{
+							"type": "@comment",
+							"value": ""
+						},
+						{
+							"property": "foo",
+							"value": "'bar'"
+						},
+						{
+							"type": "@comment",
+							"value": " 4 "
+						}
+					]
+				},
+				{
+					"type": "@comment",
+					"value": " 5 "
+				},
+				{
+					"type": "@comment",
+					"value": " 6 "
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"comment-in": {
+		"css": "a {\n    color/**/: 12px;\n    padding/*4815162342*/: 1px /**/ 2px /*13*/ 3px;\n    border/*\\**/: solid; border-top/*\\**/: none\\9;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"a"
+					],
+					"declarations": [
+						{
+							"property": "color",
+							"value": "12px"
+						},
+						{
+							"property": "padding",
+							"value": "1px  2px  3px"
+						},
+						{
+							"property": "border",
+							"value": "solid"
+						},
+						{
+							"property": "border-top",
+							"value": "none\\9"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"comment-url": {
+		"css": "/* http://foo.com/bar/baz.html */\n/**/\n\nfoo { /*/*/\n  /* something */\n  bar: baz; /* http://foo.com/bar/baz.html */\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@comment",
+					"value": " http://foo.com/bar/baz.html "
+				},
+				{
+					"type": "@comment",
+					"value": ""
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"foo"
+					],
+					"declarations": [
+						{
+							"type": "@comment",
+							"value": "/"
+						},
+						{
+							"type": "@comment",
+							"value": " something "
+						},
+						{
+							"property": "bar",
+							"value": "baz"
+						},
+						{
+							"type": "@comment",
+							"value": " http://foo.com/bar/baz.html "
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"custom-media": {
+		"css": "@custom-media --narrow-window (max-width: 30em);\n@custom-media --wide-window screen and (min-width: 40em);",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@custom-media",
+					"name": "--narrow-window",
+					"value": "(max-width: 30em)"
+				},
+				{
+					"type": "@custom-media",
+					"name": "--wide-window",
+					"value": "screen and (min-width: 40em)"
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"custom-media-linebreak": {
+		"css": "@custom-media\n    --test\n    (min-width: 200px)\n;",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@custom-media",
+					"name": "--test",
+					"value": "(min-width: 200px)"
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"document": {
+		"css": "@-moz-document url-prefix() {\n  /* ui above */\n  .ui-select .ui-btn select {\n    /* ui inside */\n    opacity:.0001\n  }\n\n  .icon-spin {\n    height: .9em;\n  }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@document",
+					"value": "url-prefix()",
+					"vendor": "-moz-",
+					"rules": [
+						{
+							"type": "@comment",
+							"value": " ui above "
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								".ui-select .ui-btn select"
+							],
+							"declarations": [
+								{
+									"type": "@comment",
+									"value": " ui inside "
+								},
+								{
+									"property": "opacity",
+									"value": ".0001"
+								}
+							]
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								".icon-spin"
+							],
+							"declarations": [
+								{
+									"property": "height",
+									"value": ".9em"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"document-linebreak": {
+		"css": "@document\n    url-prefix()\n    {\n\n        .test {\n            color: blue;\n        }\n\n    }",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@document",
+					"value": "url-prefix()",
+					"vendor": "",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								".test"
+							],
+							"declarations": [
+								{
+									"property": "color",
+									"value": "blue"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"empty": {
+		"css": "",
+		"ast": {
+			"type": "root",
+			"rules": [],
+			"parsingErrors": []
+		}
+	},
+	"escapes": {
+		"css": "/* tests compressed for easy testing */\n/* http://mathiasbynens.be/notes/css-escapes */\n/* will match elements with class=\":`(\" */\n.\\3A \\`\\({}\n/* will match elements with class=\"1a2b3c\" */\n.\\31 a2b3c{}\n/* will match the element with id=\"#fake-id\" */\n#\\#fake-id{}\n/* will match the element with id=\"---\" */\n#\\---{}\n/* will match the element with id=\"-a-b-c-\" */\n#-a-b-c-{}\n/* will match the element with id=\"©\" */\n#©{}\n/* More tests from http://mathiasbynens.be/demo/html5-id */\nhtml{font:1.2em/1.6 Arial;}\ncode{font-family:Consolas;}\nli code{background:rgba(255, 255, 255, .5);padding:.3em;}\nli{background:orange;}\n#♥{background:lime;}\n#©{background:lime;}\n#“‘’”{background:lime;}\n#☺☃{background:lime;}\n#⌘⌥{background:lime;}\n#𝄞♪♩♫♬{background:lime;}\n#\\?{background:lime;}\n#\\@{background:lime;}\n#\\.{background:lime;}\n#\\3A \\){background:lime;}\n#\\3A \\`\\({background:lime;}\n#\\31 23{background:lime;}\n#\\31 a2b3c{background:lime;}\n#\\<p\\>{background:lime;}\n#\\<\\>\\<\\<\\<\\>\\>\\<\\>{background:lime;}\n#\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\[\\>\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\>\\+\\<\\<\\<\\<\\-\\]\\>\\+\\+\\.\\>\\+\\.\\+\\+\\+\\+\\+\\+\\+\\.\\.\\+\\+\\+\\.\\>\\+\\+\\.\\<\\<\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\.\\>\\.\\+\\+\\+\\.\\-\\-\\-\\-\\-\\-\\.\\-\\-\\-\\-\\-\\-\\-\\-\\.\\>\\+\\.\\>\\.{background:lime;}\n#\\#{background:lime;}\n#\\#\\#{background:lime;}\n#\\#\\.\\#\\.\\#{background:lime;}\n#\\_{background:lime;}\n#\\.fake\\-class{background:lime;}\n#foo\\.bar{background:lime;}\n#\\3A hover{background:lime;}\n#\\3A hover\\3A focus\\3A active{background:lime;}\n#\\[attr\\=value\\]{background:lime;}\n#f\\/o\\/o{background:lime;}\n#f\\\\o\\\\o{background:lime;}\n#f\\*o\\*o{background:lime;}\n#f\\!o\\!o{background:lime;}\n#f\\'o\\'o{background:lime;}\n#f\\~o\\~o{background:lime;}\n#f\\+o\\+o{background:lime;}\n\n/* css-parse does not yet pass this test */\n/*#\\{\\}{background:lime;}*/",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@comment",
+					"value": " tests compressed for easy testing "
+				},
+				{
+					"type": "@comment",
+					"value": " http://mathiasbynens.be/notes/css-escapes "
+				},
+				{
+					"type": "@comment",
+					"value": " will match elements with class=\":`(\" "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						".\\3A \\`\\("
+					],
+					"declarations": []
+				},
+				{
+					"type": "@comment",
+					"value": " will match elements with class=\"1a2b3c\" "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						".\\31 a2b3c"
+					],
+					"declarations": []
+				},
+				{
+					"type": "@comment",
+					"value": " will match the element with id=\"#fake-id\" "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\#fake-id"
+					],
+					"declarations": []
+				},
+				{
+					"type": "@comment",
+					"value": " will match the element with id=\"---\" "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\---"
+					],
+					"declarations": []
+				},
+				{
+					"type": "@comment",
+					"value": " will match the element with id=\"-a-b-c-\" "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#-a-b-c-"
+					],
+					"declarations": []
+				},
+				{
+					"type": "@comment",
+					"value": " will match the element with id=\"©\" "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#©"
+					],
+					"declarations": []
+				},
+				{
+					"type": "@comment",
+					"value": " More tests from http://mathiasbynens.be/demo/html5-id "
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"html"
+					],
+					"declarations": [
+						{
+							"property": "font",
+							"value": "1.2em/1.6 Arial"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"code"
+					],
+					"declarations": [
+						{
+							"property": "font-family",
+							"value": "Consolas"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"li code"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "rgba(255, 255, 255, .5)"
+						},
+						{
+							"property": "padding",
+							"value": ".3em"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"li"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "orange"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#♥"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#©"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#“‘’”"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#☺☃"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#⌘⌥"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#𝄞♪♩♫♬"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\?"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\@"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\."
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\3A \\)"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\3A \\`\\("
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\31 23"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\31 a2b3c"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\<p\\>"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\<\\>\\<\\<\\<\\>\\>\\<\\>"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\[\\>\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\>\\+\\+\\+\\>\\+\\<\\<\\<\\<\\-\\]\\>\\+\\+\\.\\>\\+\\.\\+\\+\\+\\+\\+\\+\\+\\.\\.\\+\\+\\+\\.\\>\\+\\+\\.\\<\\<\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\+\\.\\>\\.\\+\\+\\+\\.\\-\\-\\-\\-\\-\\-\\.\\-\\-\\-\\-\\-\\-\\-\\-\\.\\>\\+\\.\\>\\."
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\#"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\#\\#"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\#\\.\\#\\.\\#"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\_"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\.fake\\-class"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#foo\\.bar"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\3A hover"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\3A hover\\3A focus\\3A active"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#\\[attr\\=value\\]"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#f\\/o\\/o"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#f\\\\o\\\\o"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#f\\*o\\*o"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#f\\!o\\!o"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#f\\'o\\'o"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#f\\~o\\~o"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"#f\\+o\\+o"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "lime"
+						}
+					]
+				},
+				{
+					"type": "@comment",
+					"value": " css-parse does not yet pass this test "
+				},
+				{
+					"type": "@comment",
+					"value": "#\\{\\}{background:lime;}"
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"font-face": {
+		"css": "@font-face {\n  font-family: \"Bitstream Vera Serif Bold\";\n  src: url(\"http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf\");\n}\n\nbody {\n  font-family: \"Bitstream Vera Serif Bold\", serif;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@font-face",
+					"declarations": [
+						{
+							"property": "font-family",
+							"value": "\"Bitstream Vera Serif Bold\""
+						},
+						{
+							"property": "src",
+							"value": "url(\"http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf\")"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"body"
+					],
+					"declarations": [
+						{
+							"property": "font-family",
+							"value": "\"Bitstream Vera Serif Bold\", serif"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"font-face-linebreak": {
+		"css": "@font-face\n  \n       {\n  font-family: \"Bitstream Vera Serif Bold\";\n  src: url(\"http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf\");\n}\n\nbody {\n  font-family: \"Bitstream Vera Serif Bold\", serif;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@font-face",
+					"declarations": [
+						{
+							"property": "font-family",
+							"value": "\"Bitstream Vera Serif Bold\""
+						},
+						{
+							"property": "src",
+							"value": "url(\"http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf\")"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"body"
+					],
+					"declarations": [
+						{
+							"property": "font-family",
+							"value": "\"Bitstream Vera Serif Bold\", serif"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"hose-linebreak": {
+		"css": "@host\n    {\n        :scope { color: white; }\n    }",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@host",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								":scope"
+							],
+							"declarations": [
+								{
+									"property": "color",
+									"value": "white"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"host": {
+		"css": "@host {\n  :scope {\n    display: block;\n  }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@host",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								":scope"
+							],
+							"declarations": [
+								{
+									"property": "display",
+									"value": "block"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"import": {
+		"css": "@import url(\"fineprint.css\") print;\n@import url(\"bluish.css\") projection, tv;\n@import 'custom.css';\n@import \"common.css\" screen, projection;\n@import url('landscape.css') screen and (orientation:landscape);",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@import",
+					"value": "url(\"fineprint.css\") print"
+				},
+				{
+					"type": "@import",
+					"value": "url(\"bluish.css\") projection, tv"
+				},
+				{
+					"type": "@import",
+					"value": "'custom.css'"
+				},
+				{
+					"type": "@import",
+					"value": "\"common.css\" screen, projection"
+				},
+				{
+					"type": "@import",
+					"value": "url('landscape.css') screen and (orientation:landscape)"
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"import-linebreak": {
+		"css": "@import\n    url(test.css)\n    screen\n    ;",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@import",
+					"value": "url(test.css)\n    screen"
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"import-messed": {
+		"css": "@import url(\"fineprint.css\") print;\n  @import url(\"bluish.css\") projection, tv;\n      @import 'custom.css';\n  @import \"common.css\" screen, projection  ;\n\n  @import url('landscape.css') screen and (orientation:landscape);",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@import",
+					"value": "url(\"fineprint.css\") print"
+				},
+				{
+					"type": "@import",
+					"value": "url(\"bluish.css\") projection, tv"
+				},
+				{
+					"type": "@import",
+					"value": "'custom.css'"
+				},
+				{
+					"type": "@import",
+					"value": "\"common.css\" screen, projection"
+				},
+				{
+					"type": "@import",
+					"value": "url('landscape.css') screen and (orientation:landscape)"
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"keyframes": {
+		"css": "@keyframes fade {\n  /* from above */\n  from {\n    /* from inside */\n    opacity: 0;\n  }\n\n  /* to above */\n  to {\n    /* to inside */\n    opacity: 1;\n  }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@keyframes",
+					"value": "fade",
+					"rules": [
+						{
+							"type": "@comment",
+							"value": " from above "
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"from"
+							],
+							"declarations": [
+								{
+									"type": "@comment",
+									"value": " from inside "
+								},
+								{
+									"property": "opacity",
+									"value": "0"
+								}
+							]
+						},
+						{
+							"type": "@comment",
+							"value": " to above "
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"to"
+							],
+							"declarations": [
+								{
+									"type": "@comment",
+									"value": " to inside "
+								},
+								{
+									"property": "opacity",
+									"value": "1"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"keyframes-advanced": {
+		"css": "@keyframes advanced {\n  top {\n    opacity[sqrt]: 0;\n  }\n\n  100 {\n    opacity: 0.5;\n  }\n\n  bottom {\n    opacity: 1;\n  }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@keyframes",
+					"value": "advanced",
+					"rules": [
+						{
+							"type": "keyframe",
+							"selectors": [
+								"top"
+							],
+							"declarations": [
+								{
+									"property": "opacity[sqrt]",
+									"value": "0"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"100"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "0.5"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"bottom"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "1"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"keyframes-complex": {
+		"css": "@keyframes foo {\n  0% { top: 0; left: 0 }\n  30.50% { top: 50px }\n  .68% ,\n  72%\n      , 85% { left: 50px }\n  100% { top: 100px; left: 100% }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@keyframes",
+					"value": "foo",
+					"rules": [
+						{
+							"type": "keyframe",
+							"selectors": [
+								"0%"
+							],
+							"declarations": [
+								{
+									"property": "top",
+									"value": "0"
+								},
+								{
+									"property": "left",
+									"value": "0"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"30.50%"
+							],
+							"declarations": [
+								{
+									"property": "top",
+									"value": "50px"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								".68%",
+								"72%",
+								"85%"
+							],
+							"declarations": [
+								{
+									"property": "left",
+									"value": "50px"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"100%"
+							],
+							"declarations": [
+								{
+									"property": "top",
+									"value": "100px"
+								},
+								{
+									"property": "left",
+									"value": "100%"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"keyframes-linebreak": {
+		"css": "@keyframes\n    test\n    {\n        from { opacity: 1; }\n        to { opacity: 0; }\n    }",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@keyframes",
+					"value": "test",
+					"rules": [
+						{
+							"type": "keyframe",
+							"selectors": [
+								"from"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "1"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"to"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "0"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"keyframes-messed": {
+		"css": "@keyframes fade {from\n  {opacity: 0;\n     }\nto\n  {\n     opacity: 1;}}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@keyframes",
+					"value": "fade",
+					"rules": [
+						{
+							"type": "keyframe",
+							"selectors": [
+								"from"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "0"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"to"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "1"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"keyframes-vendor": {
+		"css": "@-webkit-keyframes fade {\n  from { opacity: 0 }\n  to { opacity: 1 }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@keyframes",
+					"value": "fade",
+					"vendor": "-webkit-",
+					"rules": [
+						{
+							"type": "keyframe",
+							"selectors": [
+								"from"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "0"
+								}
+							]
+						},
+						{
+							"type": "keyframe",
+							"selectors": [
+								"to"
+							],
+							"declarations": [
+								{
+									"property": "opacity",
+									"value": "1"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"media": {
+		"css": "@media screen, projection {\n  /* html above */\n  html {\n    /* html inside */\n    background: #fffef0;\n    color: #300;\n  }\n\n  /* body above */\n  body {\n    /* body inside */\n    max-width: 35em;\n    margin: 0 auto;\n  }\n}\n\n@media print {\n  html {\n    background: #fff;\n    color: #000;\n  }\n  body {\n    padding: 1in;\n    border: 0.5pt solid #666;\n  }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@media",
+					"value": "screen, projection",
+					"rules": [
+						{
+							"type": "@comment",
+							"value": " html above "
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								"html"
+							],
+							"declarations": [
+								{
+									"type": "@comment",
+									"value": " html inside "
+								},
+								{
+									"property": "background",
+									"value": "#fffef0"
+								},
+								{
+									"property": "color",
+									"value": "#300"
+								}
+							]
+						},
+						{
+							"type": "@comment",
+							"value": " body above "
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								"body"
+							],
+							"declarations": [
+								{
+									"type": "@comment",
+									"value": " body inside "
+								},
+								{
+									"property": "max-width",
+									"value": "35em"
+								},
+								{
+									"property": "margin",
+									"value": "0 auto"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "@media",
+					"value": "print",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								"html"
+							],
+							"declarations": [
+								{
+									"property": "background",
+									"value": "#fff"
+								},
+								{
+									"property": "color",
+									"value": "#000"
+								}
+							]
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								"body"
+							],
+							"declarations": [
+								{
+									"property": "padding",
+									"value": "1in"
+								},
+								{
+									"property": "border",
+									"value": "0.5pt solid #666"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"media-linebreak": {
+		"css": "@media\n\n(\n    min-width: 300px\n)\n{\n    .test { width: 100px; }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@media",
+					"value": "(\n    min-width: 300px\n)",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								".test"
+							],
+							"declarations": [
+								{
+									"property": "width",
+									"value": "100px"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"media-messed": {
+		"css": "@media screen, projection{ html\n  \n  {\nbackground: #fffef0;\n    color:#300;\n  }\n  body\n\n{\n    max-width: 35em;\n    margin: 0 auto;\n\n\n}\n  }\n\n@media print\n{\n              html {\n              background: #fff;\n              color: #000;\n              }\n              body {\n              padding: 1in;\n              border: 0.5pt solid #666;\n              }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@media",
+					"value": "screen, projection",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								"html"
+							],
+							"declarations": [
+								{
+									"property": "background",
+									"value": "#fffef0"
+								},
+								{
+									"property": "color",
+									"value": "#300"
+								}
+							]
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								"body"
+							],
+							"declarations": [
+								{
+									"property": "max-width",
+									"value": "35em"
+								},
+								{
+									"property": "margin",
+									"value": "0 auto"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "@media",
+					"value": "print",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								"html"
+							],
+							"declarations": [
+								{
+									"property": "background",
+									"value": "#fff"
+								},
+								{
+									"property": "color",
+									"value": "#000"
+								}
+							]
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								"body"
+							],
+							"declarations": [
+								{
+									"property": "padding",
+									"value": "1in"
+								},
+								{
+									"property": "border",
+									"value": "0.5pt solid #666"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"messed-up": {
+		"css": "body { foo\n  :\n  'bar' }\n\n   body{foo:bar;bar:baz}\n   body\n   {\n     foo\n     :\n     bar\n     ;\n     bar\n     :\n     baz\n     }",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"body"
+					],
+					"declarations": [
+						{
+							"property": "foo",
+							"value": "'bar'"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"body"
+					],
+					"declarations": [
+						{
+							"property": "foo",
+							"value": "bar"
+						},
+						{
+							"property": "bar",
+							"value": "baz"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"body"
+					],
+					"declarations": [
+						{
+							"property": "foo",
+							"value": "bar"
+						},
+						{
+							"property": "bar",
+							"value": "baz"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"namespace": {
+		"css": "@namespace \"http://www.w3.org/1999/xhtml\";\n@namespace svg \"http://www.w3.org/2000/svg\";",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@namespace",
+					"value": "\"http://www.w3.org/1999/xhtml\""
+				},
+				{
+					"type": "@namespace",
+					"value": "svg \"http://www.w3.org/2000/svg\""
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"namespace-linebreak": {
+		"css": "@namespace\n    \"http://www.w3.org/1999/xhtml\"\n    ;",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@namespace",
+					"value": "\"http://www.w3.org/1999/xhtml\""
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"no-semi": {
+		"css": "tobi loki jane {\n  are: 'all';\n  the-species: called \"ferrets\"\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"tobi loki jane"
+					],
+					"declarations": [
+						{
+							"property": "are",
+							"value": "'all'"
+						},
+						{
+							"property": "the-species",
+							"value": "called \"ferrets\""
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"page-linebreak": {
+		"css": "@page\n    toc\n    {\n        color: black;\n    }",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@page",
+					"selectors": [
+						"toc"
+					],
+					"declarations": [
+						{
+							"property": "color",
+							"value": "black"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"paged-media": {
+		"css": "/* toc above */\n@page toc, index:blank {\n  /* toc inside */\n  color: green;\n}\n\n@page {\n  font-size: 16pt;\n}\n\n@page :left {\n  margin-left: 5cm;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@comment",
+					"value": " toc above "
+				},
+				{
+					"type": "@page",
+					"selectors": [
+						"toc",
+						"index:blank"
+					],
+					"declarations": [
+						{
+							"type": "@comment",
+							"value": " toc inside "
+						},
+						{
+							"property": "color",
+							"value": "green"
+						}
+					]
+				},
+				{
+					"type": "@page",
+					"selectors": [],
+					"declarations": [
+						{
+							"property": "font-size",
+							"value": "16pt"
+						}
+					]
+				},
+				{
+					"type": "@page",
+					"selectors": [
+						":left"
+					],
+					"declarations": [
+						{
+							"property": "margin-left",
+							"value": "5cm"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"props": {
+		"css": "tobi loki jane {\n  are: 'all';\n  the-species: called \"ferrets\";\n  *even: 'ie crap';\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"tobi loki jane"
+					],
+					"declarations": [
+						{
+							"property": "are",
+							"value": "'all'"
+						},
+						{
+							"property": "the-species",
+							"value": "called \"ferrets\""
+						},
+						{
+							"property": "*even",
+							"value": "'ie crap'"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"quote-escape": {
+		"css": "p[qwe=\"a\\\",b\"] { color: red }",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"p[qwe=\"a\\\",b\"]"
+					],
+					"declarations": [
+						{
+							"property": "color",
+							"value": "red"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"quoted": {
+		"css": "body {\n  background: url('some;stuff;here') 50% 50% no-repeat;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"body"
+					],
+					"declarations": [
+						{
+							"property": "background",
+							"value": "url('some;stuff;here') 50% 50% no-repeat"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"rule": {
+		"css": "foo {\n  bar: 'baz';\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"foo"
+					],
+					"declarations": [
+						{
+							"property": "bar",
+							"value": "'baz'"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"rules": {
+		"css": "tobi {\n  name: 'tobi';\n  age: 2;\n}\n\nloki {\n  name: 'loki';\n  age: 1;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"tobi"
+					],
+					"declarations": [
+						{
+							"property": "name",
+							"value": "'tobi'"
+						},
+						{
+							"property": "age",
+							"value": "2"
+						}
+					]
+				},
+				{
+					"type": "rule",
+					"selectors": [
+						"loki"
+					],
+					"declarations": [
+						{
+							"property": "name",
+							"value": "'loki'"
+						},
+						{
+							"property": "age",
+							"value": "1"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"selectors": {
+		"css": "foo,\nbar,\nbaz {\n  color: 'red';\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						"foo",
+						"bar",
+						"baz"
+					],
+					"declarations": [
+						{
+							"property": "color",
+							"value": "'red'"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"supports": {
+		"css": "@supports (display: flex) or (display: box) {\n  /* flex above */\n  .flex {\n    /* flex inside */\n    display: box;\n    display: flex;\n  }\n\n  div {\n    something: else;\n  }\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@supports",
+					"value": "(display: flex) or (display: box)",
+					"rules": [
+						{
+							"type": "@comment",
+							"value": " flex above "
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								".flex"
+							],
+							"declarations": [
+								{
+									"type": "@comment",
+									"value": " flex inside "
+								},
+								{
+									"property": "display",
+									"value": "box"
+								},
+								{
+									"property": "display",
+									"value": "flex"
+								}
+							]
+						},
+						{
+							"type": "rule",
+							"selectors": [
+								"div"
+							],
+							"declarations": [
+								{
+									"property": "something",
+									"value": "else"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"supports-linebreak": {
+		"css": "@supports\n    (display: flex)\n    {\n        .test { display: flex; }\n    }",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "@supports",
+					"value": "(display: flex)",
+					"rules": [
+						{
+							"type": "rule",
+							"selectors": [
+								".test"
+							],
+							"declarations": [
+								{
+									"property": "display",
+									"value": "flex"
+								}
+							]
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	},
+	"wtf": {
+		"css": ".wtf {\n  *overflow-x: hidden;\n  //max-height: 110px;\n  #height: 18px;\n}",
+		"ast": {
+			"type": "root",
+			"rules": [
+				{
+					"type": "rule",
+					"selectors": [
+						".wtf"
+					],
+					"declarations": [
+						{
+							"property": "*overflow-x",
+							"value": "hidden"
+						},
+						{
+							"property": "//max-height",
+							"value": "110px"
+						},
+						{
+							"property": "#height",
+							"value": "18px"
+						}
+					]
+				}
+			],
+			"parsingErrors": []
+		}
+	}
+}

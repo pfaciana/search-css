@@ -1,0 +1,35 @@
+{
+	"name": "search-css",
+	"version": "1.0.0",
+	"description": "Parse and Search CSS for at rules, selectors, properties and/or values",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pfaciana/search-css.git"
+	},
+	"author": "Phil Faciana <phil@renderdev.com> (https://renderdev.com/)",
+	"license": "MIT",
+	"homepage": "https://github.com/pfaciana/search-css",
+	"scripts": {
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@babel/core": "^7",
+		"@babel/preset-env": "^7",
+		"@babel/preset-react": "^7",
+		"babelify": "^10",
+		"browserify-buffer": "^1",
+		"gulp": "^4.0.1",
+		"gulp-babel": "^8",
+		"gulp-brotli": "^1",
+		"gulp-conditional-eol": "^1",
+		"gulp-create-tasks": "^1",
+		"gulp-debug": "^4",
+		"gulp-if": "^2",
+		"gulp-rename": "^1",
+		"gulp-size": "^3",
+		"gulp-terser": "^1",
+		"jest": "^24"
+	},
+	"dependencies": {}
+}

@@ -1,0 +1,304 @@
+{
+    "type": "root",
+    "rules": [
+        {
+            "type": "rule",
+            "selectors": [
+                "body"
+            ],
+            "declarations": {
+                "color": "gray"
+            }
+        },
+        {
+            "type": "rule",
+            "selectors": [
+                ":root"
+            ],
+            "declarations": {
+                "--blue": "#0074d9"
+            }
+        },
+        {
+            "type": "@comment",
+            "value": " Sample at-rule CSS @CSSTricks.com [1]\n *\n * [1] https://css-tricks.com/the-at-rules-of-css/\n "
+        },
+        {
+            "type": "@charset",
+            "value": "\"UTF-8\""
+        },
+        {
+            "type": "@import",
+            "value": "'global.css'"
+        },
+        {
+            "type": "@comment",
+            "value": " Namespace for XHTML "
+        },
+        {
+            "type": "@namespace",
+            "value": "url(http://www.w3.org/1999/xhtml)"
+        },
+        {
+            "type": "@comment",
+            "value": " Namespace for SVG embedded in XHTML "
+        },
+        {
+            "type": "@namespace",
+            "value": "svg url(http://www.w3.org/2000/svg)"
+        },
+        {
+            "type": "@document",
+            "value": "/* Rules for a specific page */\nurl(http://css-tricks.com/),\n\n\t/* Rules for pages with a URL that begin with... */\nurl-prefix(http://css-tricks.com/snippets/),\n\n\t/* Rules for any page hosted on a domain */\ndomain(css-tricks.com),\n\n\t/* Rules for all secure pages */\nregexp(\"https:.*\")",
+            "vendor": "",
+            "rules": [
+                {
+                    "type": "@comment",
+                    "value": " Start styling "
+                },
+                {
+                    "type": "rule",
+                    "selectors": [
+                        "body"
+                    ],
+                    "declarations": {
+                        "font-family": "Comic Sans"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "@host",
+            "rules": [
+                {
+                    "type": "rule",
+                    "selectors": [
+                        ".my-element"
+                    ],
+                    "declarations": {
+                        "display": "block",
+                        "border": "1px solid black"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "@font-face",
+            "declarations": {
+                "font-family": "'MyWebFont'",
+                "src": "url('myfont.woff2') format('woff2'),\n\t             url('myfont.woff') format('woff')"
+            }
+        },
+        {
+            "type": "@keyframes",
+            "value": "pulse",
+            "rules": [
+                {
+                    "type": "keyframe",
+                    "selectors": [
+                        "0%"
+                    ],
+                    "declarations": {
+                        "background-color": "#001F3F"
+                    }
+                },
+                {
+                    "type": "keyframe",
+                    "selectors": [
+                        "end"
+                    ],
+                    "declarations": {
+                        "background-color": "#FF4136"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "@comment",
+            "value": " iPhone in Portrait and Landscape "
+        },
+        {
+            "type": "@media",
+            "value": "only screen\nand (min-device-width: 320px)\nand (max-device-width: 480px)\nand (-webkit-min-device-pixel-ratio: 2)",
+            "rules": [
+                {
+                    "type": "rule",
+                    "selectors": [
+                        ".module"
+                    ],
+                    "declarations": {
+                        "width": "100%"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "@media",
+            "value": "print",
+            "rules": []
+        },
+        {
+            "type": "@page",
+            "selectors": [
+                ":first"
+            ],
+            "declarations": {
+                "margin": "1in"
+            }
+        },
+        {
+            "type": "@media",
+            "value": "not screen",
+            "rules": [
+                {
+                    "type": "@supports",
+                    "value": "(display: flex)",
+                    "rules": [
+                        {
+                            "type": "@host",
+                            "rules": [
+                                {
+                                    "type": "rule",
+                                    "selectors": [
+                                        ".my-element"
+                                    ],
+                                    "declarations": {
+                                        "display": "block",
+                                        "border": "1px solid black"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "@font-face",
+                            "declarations": {
+                                "font-family": "'MyWebFont'",
+                                "src": "url('myfont.woff2') format('woff2'), url('myfont.woff') format('woff')"
+                            }
+                        },
+                        {
+                            "type": "@page",
+                            "selectors": [],
+                            "declarations": {
+                                "margin": "1in"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "@comment",
+            "value": " Check one supported condition "
+        },
+        {
+            "type": "@supports",
+            "value": "(display: flex)",
+            "rules": [
+                {
+                    "type": "rule",
+                    "selectors": [
+                        ".module"
+                    ],
+                    "declarations": {
+                        "display": "flex"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "@comment",
+            "value": " Check multiple conditions "
+        },
+        {
+            "type": "@supports",
+            "value": "(display: flex) and (-webkit-appearance: checkbox)",
+            "rules": [
+                {
+                    "type": "rule",
+                    "selectors": [
+                        ".module"
+                    ],
+                    "declarations": {
+                        "display": "flex"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "@supports",
+            "value": "(display: flex)",
+            "rules": [
+                {
+                    "type": "rule",
+                    "selectors": [
+                        ".module2"
+                    ],
+                    "declarations": {
+                        "display": "flex",
+                        "margin": "1in"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "@supports",
+            "value": "(flex-wrap: wrap)",
+            "rules": [
+                {
+                    "type": "@media",
+                    "value": "(min-width: 50em)",
+                    "rules": [
+                        {
+                            "type": "@keyframes",
+                            "value": "pulse",
+                            "rules": [
+                                {
+                                    "type": "keyframe",
+                                    "selectors": [
+                                        "0%",
+                                        "25%"
+                                    ],
+                                    "declarations": {
+                                        "background-color": "#001F3F"
+                                    }
+                                },
+                                {
+                                    "type": "keyframe",
+                                    "selectors": [
+                                        "end"
+                                    ],
+                                    "declarations": {
+                                        "background-color": "#FF4136"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "rule",
+                            "selectors": [
+                                ".a.b .c .d"
+                            ],
+                            "declarations": {
+                                "margin": "0px !important",
+                                "border": "1px solid red",
+                                "padding": "10rem",
+                                "color": "gray"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "rule",
+            "selectors": [
+                ".box"
+            ],
+            "declarations": {
+                "color": "transparent"
+            }
+        }
+    ],
+    "parsingErrors": []
+}
