@@ -88,8 +88,8 @@ describe('matchesToString', () => {
 	];
 
 	test.each(table)('%p', (name, matches) => {
-			expect(matchesToString(matches, {groupAtRules: false, indent: 2})).toMatchSnapshot();
-			expect(matchesToString(matches, {groupAtRules: true, indent: 2})).toMatchSnapshot();
+			expect(matchesToString({groupAtRules: false, indent: 2}, matches)).toMatchSnapshot();
+			expect(matchesToString({groupAtRules: true, indent: 2}, matches)).toMatchSnapshot();
 		},
 	);
 });
@@ -129,8 +129,8 @@ describe('searchCSS', () => {
 			const searchMultiDeclarations = searchCSS(mockAst, query, {singleDeclaration: false});
 			const searchSingleDeclarations = searchCSS(mockAst, query, {singleDeclaration: true});
 
-			expect(searchMultiDeclarations.getMatches().length).toStrictEqual(count);
-			expect(searchSingleDeclarations.getMatches().length).toStrictEqual(singleCount);
+			expect(searchMultiDeclarations.length).toStrictEqual(count);
+			expect(searchSingleDeclarations.length).toStrictEqual(singleCount);
 
 			expect(searchMultiDeclarations.toString({groupAtRules: false, indent: 2})).toMatchSnapshot();
 			expect(searchSingleDeclarations.toString({groupAtRules: false, indent: 2})).toMatchSnapshot();

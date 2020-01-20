@@ -64,8 +64,12 @@ const isValidCondition = ({type, value: pattern}, subject) => {
 	return pattern === subject;
 };
 
-const matchesToString = (matches = [], options = {}) => {
+const matchesToString = function (options = {}, matches = this) {
 	options = {...{groupAtRules: false, indent: 4, lineDelimiter: "\n", selectorDelimiter: ', '}, ...options};
+
+	if (!matches || !Array.isArray(matches) || !matches.length) {
+		return '';
+	}
 
 	const indent = ' '.repeat(options.indent);
 	let outputs = [];
@@ -119,15 +123,15 @@ const normalizeQuery = (query, specialChar) => {
 
 /* ast must be in {columns: true} format */
 const searchCSS = (ast, query = {}, options = {}) => {
-	let matches = [];
 	options = {...{singleDeclaration: false, specialChar: '|'}, ...options};
 
+	let matches = [];
+	matches.toString = matchesToString;
+	matches.error = null;
+
 	if (!Object.keys(query = normalizeQuery(query, options.specialChar)).length) {
-		return {
-			getMatches: () => [],
-			toString: () => '',
-			error: 'Valid keys are missing',
-		};
+		matches.error = 'Valid keys are missing';
+		return matches;
 	}
 
 	if (typeof ast === 'string') {
@@ -201,11 +205,7 @@ const searchCSS = (ast, query = {}, options = {}) => {
 		});
 	})(ast);
 
-	return {
-		getMatches: () => [...matches],
-		toString: (options) => matchesToString(matches, options),
-		error: null,
-	};
+	return matches;
 };
 
 module.exports = searchCSS;

@@ -733,14 +733,19 @@ const isValidCondition = (_ref, subject) => {
 };
 
 const matchesToString = function matchesToString() {
-  let matches = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  let options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  let matches = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this;
   options = _objectSpread({}, {
     groupAtRules: false,
     indent: 4,
     lineDelimiter: "\n",
     selectorDelimiter: ', '
   }, {}, options);
+
+  if (!matches || !Array.isArray(matches) || !matches.length) {
+    return '';
+  }
+
   const indent = ' '.repeat(options.indent);
   let outputs = [];
 
@@ -795,18 +800,17 @@ const normalizeQuery = (query, specialChar) => {
 const searchCSS = function searchCSS(ast) {
   let query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  let matches = [];
   options = _objectSpread({}, {
     singleDeclaration: false,
     specialChar: '|'
   }, {}, options);
+  let matches = [];
+  matches.toString = matchesToString;
+  matches.error = null;
 
   if (!Object.keys(query = normalizeQuery(query, options.specialChar)).length) {
-    return {
-      getMatches: () => [],
-      toString: () => '',
-      error: 'Valid keys are missing'
-    };
+    matches.error = 'Valid keys are missing';
+    return matches;
   }
 
   if (typeof ast === 'string') {
@@ -890,11 +894,7 @@ const searchCSS = function searchCSS(ast) {
     });
   })(ast);
 
-  return {
-    getMatches: () => [...matches],
-    toString: options => matchesToString(matches, options),
-    error: null
-  };
+  return matches;
 };
 
 module.exports = searchCSS;

@@ -493,11 +493,7 @@ exports[`searchCSS "nested atrules & property ends" 1`] = `
 }"
 `;
 
-exports[`searchCSS "nested atrules & property ends" 2`] = `
-"
-
-}"
-`;
+exports[`searchCSS "nested atrules & property ends" 2`] = `""`;
 
 exports[`searchCSS "nested atrules & property ends" 3`] = `
 "@media (min-width: 50em), @supports (flex-wrap: wrap) {
@@ -512,11 +508,7 @@ exports[`searchCSS "nested atrules & property ends" 3`] = `
 }"
 `;
 
-exports[`searchCSS "nested atrules & property ends" 4`] = `
-"
-
-}"
-`;
+exports[`searchCSS "nested atrules & property ends" 4`] = `""`;
 
 exports[`searchCSS "nested atrules" 1`] = `
 "@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
@@ -1009,11 +1001,7 @@ exports[`searchCSS "selector" 1`] = `
 }"
 `;
 
-exports[`searchCSS "selector" 2`] = `
-"
-
-}"
-`;
+exports[`searchCSS "selector" 2`] = `""`;
 
 exports[`searchCSS "selector" 3`] = `
 "@media (min-width: 50em), @supports (flex-wrap: wrap) {
@@ -1028,11 +1016,7 @@ exports[`searchCSS "selector" 3`] = `
 }"
 `;
 
-exports[`searchCSS "selector" 4`] = `
-"
-
-}"
-`;
+exports[`searchCSS "selector" 4`] = `""`;
 
 exports[`searchCSS "value regex" 1`] = `
 "@root {
