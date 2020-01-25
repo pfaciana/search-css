@@ -10,7 +10,7 @@ const babelify = require('babelify'),
 	rename = require("gulp-rename"),
 	size = require('gulp-size'),
 	terser = require('gulp-terser'),
-	browsers = 'last 2.5 years';
+	browsers = 'last 2.5 years, ie 11';
 
 const options = {
 	browsers,
