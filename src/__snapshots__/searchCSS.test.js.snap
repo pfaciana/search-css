@@ -1,153 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matchesToString "multipe @media" 1`] = `
-"@media (max-width: 479px) {
-
-  .pv:bg-red {
-    background-color: red;
-  }
-
-}
-
-@media print {
-
-  .print:bg-red {
-    background-color: red;
-  }
-
-}"
-`;
-
-exports[`matchesToString "multipe @media" 2`] = `
-"@media (max-width: 479px) {
-
-  .pv:bg-red {
-    background-color: red;
-  }
-
-}
-
-@media print {
-
-  .print:bg-red {
-    background-color: red;
-  }
-
-}"
-`;
-
-exports[`matchesToString "multiple @media and selectors" 1`] = `
-"@root {
-
-  .font-semibold {
-    font-weight: 600;
-  }
-
-}
-
-@media print {
-
-  .print:font-semibold {
-    font-weight: 600;
-  }
-
-}
-
-@root {
-
-  .font-extrabold {
-    font-weight: 800;
-  }
-
-}
-
-@media print {
-
-  .print:font-extrabold {
-    font-weight: 800;
-  }
-
-}"
-`;
-
-exports[`matchesToString "multiple @media and selectors" 2`] = `
-"@root {
-
-  .font-semibold {
-    font-weight: 600;
-  }
-
-  .font-extrabold {
-    font-weight: 800;
-  }
-
-}
-
-@media print {
-
-  .print:font-semibold {
-    font-weight: 600;
-  }
-
-  .print:font-extrabold {
-    font-weight: 800;
-  }
-
-}"
-`;
-
-exports[`matchesToString "single @media" 1`] = `
-"@media (max-width: 479px) {
-
-  .pv:bg-red {
-    background-color: red;
-  }
-
-}"
-`;
-
-exports[`matchesToString "single @media" 2`] = `
-"@media (max-width: 479px) {
-
-  .pv:bg-red {
-    background-color: red;
-  }
-
-}"
-`;
-
-exports[`matchesToString "single @root" 1`] = `
-"@root {
-
-  .bg-red {
-    color: white;
-    background-color: red;
-  }
-
-}"
-`;
-
-exports[`matchesToString "single @root" 2`] = `
-"@root {
-
-  .bg-red {
-    color: white;
-    background-color: red;
-  }
-
-}"
-`;
-
 exports[`searchCSS "@keyframes & property ends" 1`] = `
 "@keyframes pulse {
 
   0% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse {
 
   end {
     background-color: #FF4136;
@@ -162,10 +20,6 @@ exports[`searchCSS "@keyframes & property ends" 2`] = `
   0% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse {
 
   end {
     background-color: #FF4136;
@@ -209,10 +63,6 @@ exports[`searchCSS "@root & property ends" 1`] = `
     color: gray;
   }
 
-}
-
-@root {
-
   .box {
     color: transparent;
   }
@@ -226,10 +76,6 @@ exports[`searchCSS "@root & property ends" 2`] = `
   body {
     color: gray;
   }
-
-}
-
-@root {
 
   .box {
     color: transparent;
@@ -302,10 +148,6 @@ exports[`searchCSS "combined & nested atrules" 2`] = `
     color: gray;
   }
 
-}
-
-@root {
-
   .box {
     color: transparent;
   }
@@ -367,10 +209,6 @@ exports[`searchCSS "combined atrules" 1`] = `
     background-color: #001F3F;
   }
 
-}
-
-@keyframes pulse {
-
   end {
     background-color: #FF4136;
   }
@@ -400,10 +238,6 @@ exports[`searchCSS "combined atrules" 2`] = `
   0% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse {
 
   end {
     background-color: #FF4136;
@@ -517,10 +351,6 @@ exports[`searchCSS "nested atrules" 1`] = `
     background-color: #001F3F;
   }
 
-}
-
-@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
-
   end {
     background-color: #FF4136;
   }
@@ -534,10 +364,6 @@ exports[`searchCSS "nested atrules" 2`] = `
   0%, 25% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
 
   end {
     background-color: #FF4136;
@@ -589,10 +415,6 @@ exports[`searchCSS "property ends" 1`] = `
     background-color: #001F3F;
   }
 
-}
-
-@keyframes pulse {
-
   end {
     background-color: #FF4136;
   }
@@ -604,10 +426,6 @@ exports[`searchCSS "property ends" 1`] = `
   0%, 25% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
 
   end {
     background-color: #FF4136;
@@ -650,10 +468,6 @@ exports[`searchCSS "property ends" 2`] = `
     background-color: #001F3F;
   }
 
-}
-
-@keyframes pulse {
-
   end {
     background-color: #FF4136;
   }
@@ -665,10 +479,6 @@ exports[`searchCSS "property ends" 2`] = `
   0%, 25% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
 
   end {
     background-color: #FF4136;
@@ -807,10 +617,6 @@ exports[`searchCSS "property" 2`] = `
   body {
     color: gray;
   }
-
-}
-
-@root {
 
   .box {
     color: transparent;
@@ -1033,10 +839,6 @@ exports[`searchCSS "value regex" 1`] = `
     background-color: #001F3F;
   }
 
-}
-
-@keyframes pulse {
-
   end {
     background-color: #FF4136;
   }
@@ -1048,10 +850,6 @@ exports[`searchCSS "value regex" 1`] = `
   0%, 25% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
 
   end {
     background-color: #FF4136;
@@ -1075,10 +873,6 @@ exports[`searchCSS "value regex" 2`] = `
     background-color: #001F3F;
   }
 
-}
-
-@keyframes pulse {
-
   end {
     background-color: #FF4136;
   }
@@ -1090,10 +884,6 @@ exports[`searchCSS "value regex" 2`] = `
   0%, 25% {
     background-color: #001F3F;
   }
-
-}
-
-@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
 
   end {
     background-color: #FF4136;

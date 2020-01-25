@@ -1,0 +1,811 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matchesToString "large" 1`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+    .bg-red {
+        color: white;
+        background-color: red;
+    }
+
+}
+
+@media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    .a.b .c .d, .e {
+        margin: 0px !important;
+        border: 1px solid red;
+        padding: 10rem;
+        color: gray;
+    }
+
+}
+
+@root {
+
+    :root {
+        --blue: #0074D9;
+    }
+
+}
+
+@media print {
+
+    .print:font-semibold {
+        font-weight: 600;
+    }
+
+}
+
+@media min-width:641px {
+
+    .print:font-semibold {
+        font-weight: 500;
+    }
+
+}
+
+@root {
+
+    .font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@media print {
+
+    .print:font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@root {
+
+    :root {
+        --blue: #0074D9;
+    }
+
+}
+
+@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    0%, 25% {
+        background-color: #001F3F;
+    }
+
+    end {
+        background-color: #FF4136;
+    }
+
+}"
+`;
+
+exports[`matchesToString "large" 2`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+    .bg-red {
+        color: white;
+        background-color: red;
+    }
+
+    :root {
+        --blue: #0074D9;
+    }
+
+    .font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    .a.b .c .d, .e {
+        margin: 0px !important;
+        padding: 10rem;
+        border: 1px solid red;
+        color: gray;
+    }
+
+}
+
+@media print {
+
+    .print:font-semibold {
+        font-weight: 600;
+    }
+
+    .print:font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@media min-width:641px {
+
+    .print:font-semibold {
+        font-weight: 500;
+    }
+
+}
+
+@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    0%, 25% {
+        background-color: #001F3F;
+    }
+
+    end {
+        background-color: #FF4136;
+    }
+
+}"
+`;
+
+exports[`matchesToString "large" 3`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+    .bg-red {
+        color: white;
+        background-color: red;
+    }
+
+    :root {
+        --blue: #0074D9;
+    }
+
+    .font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    .a.b .c .d, .e {
+        margin: 0px !important;
+        border: 1px solid red;
+        padding: 10rem;
+        color: gray;
+    }
+
+}
+
+@media print {
+
+    .print:font-semibold {
+        font-weight: 600;
+    }
+
+    .print:font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@media min-width:641px {
+
+    .print:font-semibold {
+        font-weight: 500;
+    }
+
+}
+
+@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    0%, 25% {
+        background-color: #001F3F;
+    }
+
+    end {
+        background-color: #FF4136;
+    }
+
+}"
+`;
+
+exports[`matchesToString "large" 4`] = `
+"// @root 
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.bg-red {
+    color: white;
+    background-color: red;
+}
+
+:root {
+    --blue: #0074D9;
+}
+
+.font-extrabold {
+    font-weight: 800;
+}
+
+// @media (min-width: 50em), @supports (flex-wrap: wrap) 
+
+.a.b .c .d, .e {
+    margin: 0px !important;
+    border: 1px solid red;
+    padding: 10rem;
+    color: gray;
+}
+
+// @media print 
+
+.print:font-semibold {
+    font-weight: 600;
+}
+
+.print:font-extrabold {
+    font-weight: 800;
+}
+
+// @media min-width:641px 
+
+.print:font-semibold {
+    font-weight: 500;
+}
+
+// @keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) 
+
+0%, 25% {
+    background-color: #001F3F;
+}
+
+end {
+    background-color: #FF4136;
+}"
+`;
+
+exports[`matchesToString "large" 5`] = `
+"@root {
+
+    .font-semibold { font-weight: 600; } 
+    .bg-red { color: white; background-color: red; } 
+    :root { --blue: #0074D9; } 
+    .font-extrabold { font-weight: 800; } 
+
+}
+
+@media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    .a.b .c .d, .e { margin: 0px !important; border: 1px solid red; padding: 10rem; color: gray; } 
+
+}
+
+@media print {
+
+    .print:font-semibold { font-weight: 600; } 
+    .print:font-extrabold { font-weight: 800; } 
+
+}
+
+@media min-width:641px {
+
+    .print:font-semibold { font-weight: 500; } 
+
+}
+
+@keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    0%, 25% { background-color: #001F3F; } 
+    end { background-color: #FF4136; } 
+
+}"
+`;
+
+exports[`matchesToString "large" 6`] = `
+"// @root 
+
+.font-semibold { font-weight: 600; } 
+.bg-red { color: white; background-color: red; } 
+:root { --blue: #0074D9; } 
+.font-extrabold { font-weight: 800; } 
+
+// @media (min-width: 50em), @supports (flex-wrap: wrap) 
+
+.a.b .c .d, .e { margin: 0px !important; border: 1px solid red; padding: 10rem; color: gray; } 
+
+// @media print 
+
+.print:font-semibold { font-weight: 600; } 
+.print:font-extrabold { font-weight: 800; } 
+
+// @media min-width:641px 
+
+.print:font-semibold { font-weight: 500; } 
+
+// @keyframes pulse, @media (min-width: 50em), @supports (flex-wrap: wrap) 
+
+0%, 25% { background-color: #001F3F; } 
+end { background-color: #FF4136; } "
+`;
+
+exports[`matchesToString "multiple @media and selectors" 1`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+}
+
+@media print {
+
+    .print:font-semibold {
+        font-weight: 600;
+    }
+
+}
+
+@root {
+
+    .font-extrabold {
+        font-weight: 800;
+    }
+
+    .font-semibold {
+        font-weight: 500;
+    }
+
+}
+
+@media print {
+
+    .print:font-extrabold {
+        font-weight: 800;
+    }
+
+}"
+`;
+
+exports[`matchesToString "multiple @media and selectors" 2`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 500;
+    }
+
+    .font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@media print {
+
+    .print:font-semibold {
+        font-weight: 600;
+    }
+
+    .print:font-extrabold {
+        font-weight: 800;
+    }
+
+}"
+`;
+
+exports[`matchesToString "multiple @media and selectors" 3`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 500;
+    }
+
+    .font-extrabold {
+        font-weight: 800;
+    }
+
+}
+
+@media print {
+
+    .print:font-semibold {
+        font-weight: 600;
+    }
+
+    .print:font-extrabold {
+        font-weight: 800;
+    }
+
+}"
+`;
+
+exports[`matchesToString "multiple @media and selectors" 4`] = `
+"// @root 
+
+.font-semibold {
+    font-weight: 500;
+}
+
+.font-extrabold {
+    font-weight: 800;
+}
+
+// @media print 
+
+.print:font-semibold {
+    font-weight: 600;
+}
+
+.print:font-extrabold {
+    font-weight: 800;
+}"
+`;
+
+exports[`matchesToString "multiple @media and selectors" 5`] = `
+"@root {
+
+    .font-semibold { font-weight: 500; } 
+    .font-extrabold { font-weight: 800; } 
+
+}
+
+@media print {
+
+    .print:font-semibold { font-weight: 600; } 
+    .print:font-extrabold { font-weight: 800; } 
+
+}"
+`;
+
+exports[`matchesToString "multiple @media and selectors" 6`] = `
+"// @root 
+
+.font-semibold { font-weight: 500; } 
+.font-extrabold { font-weight: 800; } 
+
+// @media print 
+
+.print:font-semibold { font-weight: 600; } 
+.print:font-extrabold { font-weight: 800; } "
+`;
+
+exports[`matchesToString "multiple @media" 1`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red {
+        background-color: red;
+    }
+
+}
+
+@media print {
+
+    .print:bg-red {
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "multiple @media" 2`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red {
+        background-color: red;
+    }
+
+}
+
+@media print {
+
+    .print:bg-red {
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "multiple @media" 3`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red {
+        background-color: red;
+    }
+
+}
+
+@media print {
+
+    .print:bg-red {
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "multiple @media" 4`] = `
+"// @media (max-width: 479px) 
+
+.pv:bg-red {
+    background-color: red;
+}
+
+// @media print 
+
+.print:bg-red {
+    background-color: red;
+}"
+`;
+
+exports[`matchesToString "multiple @media" 5`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red { background-color: red; } 
+
+}
+
+@media print {
+
+    .print:bg-red { background-color: red; } 
+
+}"
+`;
+
+exports[`matchesToString "multiple @media" 6`] = `
+"// @media (max-width: 479px) 
+
+.pv:bg-red { background-color: red; } 
+
+// @media print 
+
+.print:bg-red { background-color: red; } "
+`;
+
+exports[`matchesToString "single @media" 1`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red {
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "single @media" 2`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red {
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "single @media" 3`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red {
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "single @media" 4`] = `
+"// @media (max-width: 479px) 
+
+.pv:bg-red {
+    background-color: red;
+}"
+`;
+
+exports[`matchesToString "single @media" 5`] = `
+"@media (max-width: 479px) {
+
+    .pv:bg-red { background-color: red; } 
+
+}"
+`;
+
+exports[`matchesToString "single @media" 6`] = `
+"// @media (max-width: 479px) 
+
+.pv:bg-red { background-color: red; } "
+`;
+
+exports[`matchesToString "single @root" 1`] = `
+"@root {
+
+    .bg-red {
+        color: white;
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "single @root" 2`] = `
+"@root {
+
+    .bg-red {
+        color: white;
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "single @root" 3`] = `
+"@root {
+
+    .bg-red {
+        color: white;
+        background-color: red;
+    }
+
+}"
+`;
+
+exports[`matchesToString "single @root" 4`] = `
+"// @root 
+
+.bg-red {
+    color: white;
+    background-color: red;
+}"
+`;
+
+exports[`matchesToString "single @root" 5`] = `
+"@root {
+
+    .bg-red { color: white; background-color: red; } 
+
+}"
+`;
+
+exports[`matchesToString "single @root" 6`] = `
+"// @root 
+
+.bg-red { color: white; background-color: red; } "
+`;
+
+exports[`outputAtRules "simple" 1`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 700;
+    }
+
+    .bg-red {
+        color: white;
+        background-color: red;
+    }
+
+}
+
+@media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    .a.b .c .d, .e {
+        margin: 0px !important;
+        padding: 10rem;
+        border: 1px solid red;
+        color: gray;
+    }
+
+}
+
+@media print {
+
+    .font-semibold {
+        font-weight: 400;
+    }
+
+}"
+`;
+
+exports[`outputAtRules "simple" 2`] = `
+"@root {
+
+    .font-semibold {
+        font-weight: 700;
+    }
+
+    .bg-red {
+        background-color: red;
+        color: white;
+    }
+
+}
+
+@media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    .a.b .c .d, .e {
+        color: gray;
+        margin: 0px !important;
+        border: 1px solid red;
+        padding: 10rem;
+    }
+
+}
+
+@media print {
+
+    .font-semibold {
+        font-weight: 400;
+    }
+
+}"
+`;
+
+exports[`outputAtRules "simple" 3`] = `
+"// @root 
+
+.font-semibold {
+    font-weight: 700;
+}
+
+.bg-red {
+    background-color: red;
+    color: white;
+}
+
+// @media (min-width: 50em), @supports (flex-wrap: wrap) 
+
+.a.b .c .d, .e {
+    color: gray;
+    margin: 0px !important;
+    border: 1px solid red;
+    padding: 10rem;
+}
+
+// @media print 
+
+.font-semibold {
+    font-weight: 400;
+}"
+`;
+
+exports[`outputAtRules "simple" 4`] = `
+"@root {
+
+    .font-semibold { font-weight: 700; } 
+    .bg-red { background-color: red; color: white; } 
+
+}
+
+@media (min-width: 50em), @supports (flex-wrap: wrap) {
+
+    .a.b .c .d, .e { color: gray; margin: 0px !important; border: 1px solid red; padding: 10rem; } 
+
+}
+
+@media print {
+
+    .font-semibold { font-weight: 400; } 
+
+}"
+`;
+
+exports[`outputAtRules "simple" 5`] = `
+"// @root 
+
+.font-semibold { font-weight: 700; } 
+.bg-red { background-color: red; color: white; } 
+
+// @media (min-width: 50em), @supports (flex-wrap: wrap) 
+
+.a.b .c .d, .e { color: gray; margin: 0px !important; border: 1px solid red; padding: 10rem; } 
+
+// @media print 
+
+.font-semibold { font-weight: 400; } "
+`;

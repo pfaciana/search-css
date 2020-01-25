@@ -1,4 +1,5 @@
 const parseCss = require('./parseCSS');
+const matchesToString = require('./matchesToString');
 
 const declarationTypes = ['@page', '@font-face', 'keyframe', 'rule'];
 const inlineSelectorTypes = ['@page', '@font-face'];
@@ -64,46 +65,6 @@ const isValidCondition = ({type, value: pattern}, subject) => {
 	return pattern === subject;
 };
 
-const matchesToString = function (options = {}, matches = this) {
-	options = {...{groupAtRules: false, indent: 4, lineDelimiter: "\n", selectorDelimiter: ', '}, ...options};
-
-	if (!matches || !Array.isArray(matches) || !matches.length) {
-		return '';
-	}
-
-	const indent = ' '.repeat(options.indent);
-	let outputs = [];
-
-	if (options.groupAtRules) {
-		matches.sort((a, b) => {
-			const rulesA = a.atrules ? a.atrules.join().toLowerCase() : '';
-			const rulesB = b.atrules ? b.atrules.join().toLowerCase() : '';
-			return rulesA.localeCompare(rulesB);
-		});
-	}
-
-	let previousAtRuleString = null;
-	matches.forEach((match, index) => {
-		let lines = [];
-		const atRuleString = match.atrules && match.atrules.length > 0 ? match.atrules.join(options.selectorDelimiter) : '@root';
-
-		if (!options.groupAtRules || previousAtRuleString !== atRuleString) {
-			index && lines.push(`}${options.lineDelimiter}`);
-			lines.push(`${atRuleString} {${options.lineDelimiter}`);
-		}
-
-		lines.push(`${indent}${match.selectors.join(options.selectorDelimiter).replace('\\:', ':')} {`);
-		Object.entries(match.declarations).forEach(([key, value]) => lines.push(`${indent}${indent}${key}: ${value};`));
-		lines.push(`${indent}}`);
-
-		outputs.push(lines.join(options.lineDelimiter));
-
-		previousAtRuleString = atRuleString;
-	});
-
-	return outputs.join(`${options.lineDelimiter}${options.lineDelimiter}`) + `${options.lineDelimiter}${options.lineDelimiter}}`;
-};
-
 const normalizeQuery = (query, specialChar) => {
 	let fullQuery = {};
 
@@ -123,7 +84,8 @@ const normalizeQuery = (query, specialChar) => {
 
 /* ast must be in {columns: true} format */
 const searchCSS = (ast, query = {}, options = {}) => {
-	options = {...{singleDeclaration: false, specialChar: '|'}, ...options};
+	options = Object.assign({}, {declarationMax: false, specialChar: '|'}, options);
+	options.declarationMax = ~~options.declarationMax; // convert to integer
 
 	let matches = [];
 	matches.toString = matchesToString;
@@ -135,7 +97,7 @@ const searchCSS = (ast, query = {}, options = {}) => {
 	}
 
 	if (typeof ast === 'string') {
-		ast = parseCSS(ast, {columns: true})
+		ast = parseCSS(ast, {columns: true});
 	}
 
 	(function searchRules(rules, atRules = []) {
@@ -159,7 +121,7 @@ const searchCSS = (ast, query = {}, options = {}) => {
 				return;
 			}
 
-			if (options.singleDeclaration && properties.length !== 1) {
+			if (options.declarationMax && options.declarationMax > 0 && properties.length > options.declarationMax) {
 				return;
 			}
 
@@ -213,8 +175,6 @@ module.exports = searchCSS;
 module.exports.normalizeCondition = normalizeCondition;
 
 module.exports.isValidCondition = isValidCondition;
-
-module.exports.matchesToString = matchesToString;
 
 module.exports.normalizeQuery = normalizeQuery;
 

@@ -1,6 +1,6 @@
 const mockAst = require('./__snapshots__/mock-ast').rules;
 const searchCSS = require('./searchCSS');
-const {normalizeCondition, isValidCondition, matchesToString, normalizeQuery} = searchCSS;
+const {normalizeCondition, isValidCondition, normalizeQuery} = searchCSS;
 
 describe('normalizeCondition', () => {
 	const table = [
@@ -47,53 +47,6 @@ describe('isValidCondition', () => {
 	);
 });
 
-describe('matchesToString', () => {
-	const table = [
-		['single @root', [{
-			atrules: [],
-			selectors: ['.bg-red'],
-			declarations: {'color': 'white', 'background-color': 'red'}
-		},]],
-		['single @media', [{
-			atrules: ['@media (max-width: 479px)'],
-			selectors: ['.pv:bg-red'],
-			declarations: {'background-color': 'red'}
-		}]],
-		['multipe @media', [{
-			atrules: ['@media (max-width: 479px)'],
-			selectors: ['.pv:bg-red'],
-			declarations: {'background-color': 'red'}
-		}, {
-			atrules: ['@media print'],
-			selectors: ['.print:bg-red'],
-			declarations: {'background-color': 'red'}
-		}]],
-		['multiple @media and selectors', [{
-			atrules: [],
-			selectors: ['.font-semibold'],
-			declarations: {'font-weight': '600'}
-		}, {
-			atrules: ['@media print'],
-			selectors: ['.print:font-semibold'],
-			declarations: {'font-weight': '600'}
-		}, {
-			atrules: [],
-			selectors: ['.font-extrabold'],
-			declarations: {'font-weight': '800'}
-		}, {
-			atrules: ['@media print'],
-			selectors: ['.print:font-extrabold'],
-			declarations: {'font-weight': '800'}
-		}]],
-	];
-
-	test.each(table)('%p', (name, matches) => {
-			expect(matchesToString({groupAtRules: false, indent: 2}, matches)).toMatchSnapshot();
-			expect(matchesToString({groupAtRules: true, indent: 2}, matches)).toMatchSnapshot();
-		},
-	);
-});
-
 describe('normalizeQuery', () => {
 	const table = [
 		['simple', {property: 'margin'}, {property: {type: 'exact', value: 'margin'}}],
@@ -126,19 +79,19 @@ describe('searchCSS', () => {
 	];
 
 	test.each(table)('%p', (name, query, count, singleCount, error = null) => {
-			const searchMultiDeclarations = searchCSS(mockAst, query, {singleDeclaration: false});
-			const searchSingleDeclarations = searchCSS(mockAst, query, {singleDeclaration: true});
+			const searchAllDeclarations = searchCSS(mockAst, query, {declarationMax: false});
+			const searchSingleDeclarations = searchCSS(mockAst, query, {declarationMax: 1});
 
-			expect(searchMultiDeclarations.length).toStrictEqual(count);
+			expect(searchAllDeclarations.length).toStrictEqual(count);
 			expect(searchSingleDeclarations.length).toStrictEqual(singleCount);
 
-			expect(searchMultiDeclarations.toString({groupAtRules: false, indent: 2})).toMatchSnapshot();
-			expect(searchSingleDeclarations.toString({groupAtRules: false, indent: 2})).toMatchSnapshot();
+			expect(searchAllDeclarations.toString({orderAtRules: false, indent: 2})).toMatchSnapshot();
+			expect(searchSingleDeclarations.toString({orderAtRules: false, indent: 2})).toMatchSnapshot();
 
-			expect(searchMultiDeclarations.toString({groupAtRules: true, indent: 2})).toMatchSnapshot();
-			expect(searchSingleDeclarations.toString({groupAtRules: true, indent: 2})).toMatchSnapshot();
+			expect(searchAllDeclarations.toString({orderAtRules: true, indent: 2})).toMatchSnapshot();
+			expect(searchSingleDeclarations.toString({orderAtRules: true, indent: 2})).toMatchSnapshot();
 
-			expect(searchMultiDeclarations.error).toStrictEqual(error);
+			expect(searchAllDeclarations.error).toStrictEqual(error);
 			expect(searchSingleDeclarations.error).toStrictEqual(error);
 		},
 	);
