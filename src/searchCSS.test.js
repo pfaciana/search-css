@@ -14,7 +14,7 @@ describe('normalizeCondition', () => {
 		['array', 'a|b|c', 'in', ['a', 'b', 'c']],
 		['existing array', ['a', 'b', 'c'], 'in'],
 		['special char', 'start$', 'starts', 'start', '$'],
-		['special mulit char', '{!}middle{!}', 'has', 'middle', '{!}'],
+		['special multi char', '{!}middle{!}', 'has', 'middle', '{!}'],
 		['not trimmed (end)', '{!}middle{!} ', 'ends', 'middle{!} ', '{!}'],
 		['not trimmed (both)', ' {!}middle{!} ', 'in', [' ', 'middle', ' '], '{!}'],
 	];
