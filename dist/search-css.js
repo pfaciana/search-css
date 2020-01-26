@@ -1017,7 +1017,29 @@
 		var declarationTypes = ['@page', '@font-face', 'keyframe', 'rule'];
 		var inlineSelectorTypes = ['@page', '@font-face'];
 		var valuelessTypes = ['@host'];
-		var queryKeys = ['atrules', 'selector', 'property', 'value'];
+		var queryKeys = ['atrules', 'selector', 'property', 'value']; // IE Polyfills
+
+		!String.prototype.startsWith && (String.prototype.startsWith = function (search) {
+			var rawPos = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+			var pos = rawPos > 0 ? rawPos | 0 : 0;
+			return this.substring(pos, pos + search.length) === search;
+		});
+		!String.prototype.endsWith & (String.prototype.endsWith = function (search, this_len) {
+			if (this_len === undefined || this_len > this.length) {
+				this_len = this.length;
+			}
+
+			return this.substring(this_len - search.length, this_len) === search;
+		});
+		!String.prototype.includes && (String.prototype.includes = function (search) {
+			var start = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+			if (search instanceof RegExp) {
+				throw TypeError('first argument must not be a RegExp');
+			}
+
+			return this.indexOf(search, start) !== -1;
+		});
 
 		var normalizeCondition = function normalizeCondition(value) {
 			var specialChar = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '|';
