@@ -30,7 +30,7 @@ const builds = {
 			id: 'search-css',
 			src: './index.js',
 			dest: './dist',
-			watch: ['./index.js', './js/**/*.js'],
+			watch: ['./index.js', './src/**/*.js'],
 			alsoMin: true,
 			browserify: true,
 			post: ['clean'],
